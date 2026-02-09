@@ -100,7 +100,12 @@ PORT=<specify your port>
 STOP1=<at:xx:xxxx>
 STOP2=<at:xx:xxxx>
 ```
-From then on you can 'node server.js'(inside of node-backend/) and and 'ng serve' (inside of angular-frontend).
-Then your endpoints are available under localhost:<your port>/yourapinames(default /api/departures/se||ea).
-Upon ng serve angular cli should tell you which port it uses, default would be 4200.
+From this point on you can start your backend and frontend:
+`node server.js` (in node-backend)
+this starts your API server on the port specified in your .env.
+<br>
+Then you can start your frontend for (development/testing) from angular frontend with
+`ng serve`
+This starts the Angular development server, which by default runs on port 4200. The CLI will indicate the exact port
 
+>Note: ng serve is mainly for development and testing. For production or serving everything on a single port, the Angular app can be built (ng build) and served via your Node.js backend.
