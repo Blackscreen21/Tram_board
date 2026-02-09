@@ -6,10 +6,10 @@ of my city are also in the west, BusBahnBim and Scotty both fail to show both tr
 recommending me to wait 20 minutes longer because the entire commute is 2 minutes faster.
 
 I decided that I want to create my own Tramboard, a simple composed departure board for both stations.
-Just a website that can run on mobile and maybe on an Adurino or Raspi with an e-ink at home.
+Just a website that can run on mobile and maybe on an Adruino or Raspi with an e-ink at home.
 
-As Datasource I required the [OGD-Service-Schnittstelle TRIAS](https://www.verbundlinie.at/de/kundenservice/weitere-infostellen/faqs-hilfe/faq-zur-ogd-service-schnittstelle-trias).
-(This is an XML-based Api)
+As data source I required the [OGD-Service-Schnittstelle TRIAS](https://www.verbundlinie.at/de/kundenservice/weitere-infostellen/faqs-hilfe/faq-zur-ogd-service-schnittstelle-trias).
+(This is an XML-based API)
 
 ***
 This project is absolutely fantastic because I want to gain more knowledge in Angular and Node.js by building something.
@@ -18,12 +18,12 @@ So join me on my journey in automating 2 clicks :))
 
 ***
 # Trias
-Upon emailing the ogdtrias@verbundlinie.at that you accept their terms of services as stated in the website aforementioned you gain access to their API. (This process may take a bit, so in the meantime you can get yourself some coffee)
+Upon emailing the ogdtrias@verbundlinie.at that you accept their terms of service as stated in the website aforementioned you gain access to their API. (This process may take a bit, so in the meantime you can get yourself some coffee)
 
 **After gaining access:**
 You need to make one call to inquire the stop's at:xx:xxxx
 
-this first call looks as following 
+this first call looks as follows 
 ```xml
 <Trias version="1.2">
     <ServiceRequest>
@@ -44,9 +44,10 @@ I personally used curl for this step.
 curl -X POST \
 -H "Content-Type: text/xml" \
 -d @request_stopname.xml \
-<your api url>
+<your API url>
 ```
-The reponse looks as following
+**please note that the `content-type: text/xml` MUST be sent in the request.** <br>
+The xml-response looks as follows
 ```xml
 <Trias version="0.1">
     <ServiceDelivery>
@@ -93,7 +94,7 @@ For the endeavors I had with the API the `<StopPointRef>at:46:4046</StopPointRef
 
 You can clone this repo put the at:xx:xxxx of your stop(s) into your .env like so
 ```secret
-TRIAS_API_URL=<your_api_url>
+TRIAS_API_URL=<your_API_url>
 PORT=<specify your port>
 
 STOP1=<at:xx:xxxx>
