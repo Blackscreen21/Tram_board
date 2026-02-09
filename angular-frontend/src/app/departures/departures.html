@@ -1,0 +1,35 @@
+<h1>TRAMBOARD</h1>
+
+@if (loading()) {
+  <div>Loading departures...</div>
+}
+@if (error()) {
+  <div>{{ error() }}</div>
+}
+
+@if (!loading() && !error()) {
+  <table>
+    <thead>
+    <tr>
+      <th>Line</th>
+      <th>Origin</th>
+      <th>Destination</th>
+      <th>Planned Time</th>
+      <th>Estimated Time</th>
+      <th>Stop Name</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (dep of departures(); track dep.stopSeqNumber) {
+        <tr>
+          <td>{{ dep.line }}</td>
+          <td>{{ dep.origin }}</td>
+          <td>{{ dep.destination }}</td>
+          <td>{{ dep.plannedTime }}</td>
+          <td>{{ dep.estimatedTime }}</td>
+          <td>{{ dep.stopName }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}
