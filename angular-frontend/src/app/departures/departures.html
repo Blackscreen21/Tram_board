@@ -11,24 +11,21 @@
   <table>
     <thead>
     <tr>
-      <th>Line</th>
-      <th>Origin</th>
-      <th>Destination</th>
-      <th>Planned Time</th>
-      <th>Estimated Time</th>
-      <th>Stop Name</th>
+      <th>Linie</th>
+      <th>Richting</th>
+      <th>Planzeit</th>
+      <th>Echtzeit</th>
+      <th>Bei Haltestelle</th>
     </tr>
     </thead>
     <tbody>
       @for (dep of departures(); track dep.stopSeqNumber) {
         <tr>
           <td>{{ dep.line }}</td>
-          <td>{{ dep.origin }}</td>
           <td>{{ dep.destination }}</td>
           <td>{{ dep.plannedTime }}</td>
           <td>{{ dep.estimatedTime }}</td>
           <td>{{ dep.stopName }}</td>
-        </tr>
       }
     </tbody>
   </table>

@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit,signal } from '@angular/core';
 import {CommonModule } from '@angular/common';
-import { DepartureService } from '../services/departure.service';
+import { DepartureService } from '../../../scripts/services/departure.service';
 import { Subscription, timer } from 'rxjs';
 import { exhaustMap } from 'rxjs/operators';
-import {IDeparture} from '../services/IDeparture';
+import {IDeparture} from '../../../scripts/services/IDeparture';
 
 @Component({
   selector: 'app-departures',
