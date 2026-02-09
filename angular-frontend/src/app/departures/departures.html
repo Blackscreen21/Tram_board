@@ -23,8 +23,8 @@
         <tr>
           <td>{{ dep.line }}</td>
           <td>{{ dep.destination }}</td>
-          <td>{{ dep.plannedTime }}</td>
-          <td>{{ dep.estimatedTime }}</td>
+          <td>{{ dep.plannedTime | date:'HH:mm:ss':'Europe/Vienna' }}</td>
+          <td>{{ dep.estimatedTime | date:'HH:mm:ss':'Europe/Vienna' }}</td>
           <td>{{ dep.stopName }}</td>
       }
     </tbody>

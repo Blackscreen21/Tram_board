@@ -105,8 +105,8 @@ function processDepartures(json) {
         return {
             line: service?.ServiceSection?.PublishedLineName?.Text ?? null,
             destination: service?.DestinationText?.Text ?? null,
-            plannedTime: formatToAustrianTime(call?.ServiceDeparture?.TimetabledTime),
-            estimatedTime: formatToAustrianTime(call?.ServiceDeparture?.EstimatedTime),
+            plannedTime: call?.ServiceDeparture?.TimetabledTime,
+            estimatedTime: call?.ServiceDeparture?.EstimatedTime,
             stopName: call?.StopPointName?.Text ?? null,
             stopSeqNumber: call?.StopSeqNumber ?? null
         }
@@ -134,17 +134,6 @@ async function getDepartures(stopPointRef, res) {
 app.get('/api/departures/se', (req, res) => getDepartures(STOP1, res));
 app.get('/api/departures/ea', (req, res) => getDepartures(STOP2, res));
 
-function formatToAustrianTime(utcString) {
-    if (!utcString) return null;
-    const date = new Date(utcString);
-    return date.toLocaleTimeString('de-AT', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-        timeZone: 'Europe/Vienna'
-    });
-}
 const frontendPath = path.join(__dirname, '..', 'angular-frontend', 'dist', 'angular-frontend', 'browser');
 app.use(express.static(frontendPath));
 
