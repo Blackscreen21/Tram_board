@@ -15,3 +15,91 @@ As Datasource I required the [OGD-Service-Schnittstelle TRIAS](https://www.verbu
 This project is absolutely fantastic because I want to gain more knowledge in Angular and Node.js by building something.
 
 So join me on my journey in automating 2 clicks :))
+
+***
+# Trias
+Upon emailing the ogdtrias@verbundlinie.at that you accept their terms of services as stated in the website aforementioned you gain access to their API. (This process may take a bit, so in the meantime you can get yourself some coffee)
+
+**After gaining access:**
+You need to make one call to inquire the stop's at:xx:xxxx
+
+this first call looks as following 
+```xml
+<Trias version="1.2">
+    <ServiceRequest>
+    <siri:RequestTimestamp>2023-07-01T12:00:00Z</siri:RequestTimestamp>
+    <siri:RequestorRef>SEUS</siri:RequestorRef>
+        <RequestPayload>
+            <LocationInformationRequest>
+                <InitialInput>
+                    <LocationName>Graz, Hauptplatz/Congress</LocationName>
+                </InitialInput>
+            </LocationInformationRequest>
+        </RequestPayload>
+    </ServiceRequest>
+</Trias>
+```
+I personally used curl for this step.
+```bash 
+curl -X POST \
+-H "Content-Type: text/xml" \
+-d @request_stopname.xml \
+<your api url>
+```
+The reponse looks as following
+```xml
+<Trias version="0.1">
+    <ServiceDelivery>
+        <siri:ResponseTimestamp>2014-07-14T16:46:34</siri:ResponseTimestamp>
+        <siri:ProducerRef>MDV-TRIAS</siri:ProducerRef>
+        <DeliveryPayload>
+            <LocationInformationResponse>
+                <Location>
+                    <StopPoint>
+                        <StopPointRef>at:46:4046</StopPointRef>
+                        <StopPointName>
+                            <Text>Hauptplatz/Congress</Text>
+                            <Language>de</Language>
+                        </StopPointName>
+                        <LocalityRef>at:46001001:3</LocalityRef>
+                    </StopPoint>
+                    <LocationName>
+                        <Text>Graz</Text>
+                        <Language>de</Language>
+                    </LocationName>
+                    <GeoPosition>
+                        <Longitude>15.43837</Longitude>
+                        <Latitude>47.07122</Latitude>
+                    </GeoPosition>
+                    <Complete>true</Complete>
+                </Location>
+                <Location>
+                    <LocationName>
+                        <Text>Graz, Hauptplatz/Congress</Text>
+                        <Language>de</Language>
+                    </LocationName>
+                    <GeoPosition>
+                        <Longitude>15.43814</Longitude>
+                        <Latitude>47.07133</Latitude>
+                    </GeoPosition>
+                    <Complete>true</Complete>
+                </Location>
+            </LocationInformationResponse>
+        </DeliveryPayload>
+    </ServiceDelivery>
+</Trias>
+```
+For the endeavors I had with the API the `<StopPointRef>at:46:4046</StopPointRef>` is the important part.
+
+You can clone this repo put the at:xx:xxxx of your stop(s) into your .env like so
+```secret
+TRIAS_API_URL=<your_api_url>
+PORT=<specify your port>
+
+STOP1=<at:xx:xxxx>
+STOP2=<at:xx:xxxx>
+```
+From then on you can 'node server.js'(inside of node-backend/) and and 'ng serve' (inside of angular-frontend).
+Then your endpoints are available under localhost:<your port>/yourapinames(default /api/departures/se||ea).
+Upon ng serve angular cli should tell you which port it uses, default would be 4200.
+
