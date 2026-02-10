@@ -11,6 +11,8 @@ Just a website that can run on mobile and maybe on an Adruino or Raspi with an e
 As data source I required the [OGD-Service-Schnittstelle TRIAS](https://www.verbundlinie.at/de/kundenservice/weitere-infostellen/faqs-hilfe/faq-zur-ogd-service-schnittstelle-trias).
 (This is an XML-based API)
 
+This is my first experience with Angular and TypeScript. I tried to follow the Angular Style Guide.
+(if you notice any issues, feel free to open an issue on GitHub)
 ***
 This project is absolutely fantastic because I want to gain more knowledge in Angular and Node.js by building something.
 
