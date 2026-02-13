@@ -1,8 +1,0 @@
-
-    src/main.ts - Boots the app with bootstrapApplication.
-    src/app/app.component.ts - Root component (if used). You can also define the root inline in main.ts.
-    src/app/ - Where you add your components and features.
-    src/index.html - Host page that contains <app-root>.
-    src/styles.css - Global styles for the app.
-    angular.json - Angular workspace configuration (build, serve, test).
-    package.json - Scripts and dependencies.
