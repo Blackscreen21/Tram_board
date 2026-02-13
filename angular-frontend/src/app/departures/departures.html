@@ -21,10 +21,10 @@
     <tbody>
       @for (dep of departures(); track dep.stopSeqNumber) {
         <tr>
-          <td>{{ dep.line }}</td>
+          <td class="line">{{ dep.line }}</td>
           <td>{{ dep.destination }}</td>
-          <td>{{ dep.plannedTime | date:'HH:mm:ss':'Europe/Vienna' }}</td>
-          <td>{{ dep.estimatedTime | date:'HH:mm:ss':'Europe/Vienna' }}</td>
+          <td class = "time">{{ dep.plannedTime | date:'HH:mm:ss':'Europe/Vienna' }}</td>
+          <td class = "time" id="real_time">{{ dep.estimatedTime | date:'HH:mm:ss':'Europe/Vienna' }}</td>
           <td>{{ dep.stopName }}</td>
       }
     </tbody>
