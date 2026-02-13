@@ -1,8 +1,14 @@
 ## Personal Tramboard Site for Home
+<img width="2032" height="1265" alt="image" src="https://github.com/user-attachments/assets/cf83c10e-b2d5-42bc-a799-26a1c6046127" />
+(using two random stations
+>Current Project State
+
++ Autofetches every minute
++ Client Side Filtering
++ Shows planned and real time
 
 I live in-between two tram stations in Austria.
-The one station is to the north of my home, the other to the west, since the major points
-of my city are also in the west, BusBahnBim and Scotty both fail to show both tram options;
+BusBahnBim and Scotty both fail to show both tram options;
 recommending me to wait 20 minutes longer because the entire commute is 2 minutes faster.
 
 I decided that I want to create my own Tramboard, a simple composed departure board for both stations.
