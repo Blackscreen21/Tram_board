@@ -27,7 +27,10 @@ export class DeparturesComponent implements OnInit, OnDestroy  {
       )
       .subscribe({
         next: data => {
-          this.departures.set(data);
+          const sorted = [...data].sort((a, b) =>
+            a.plannedTime.localeCompare(b.plannedTime)
+          );
+          this.departures.set(sorted);
           this.loading.set(false);
           this.error.set(null);
         },

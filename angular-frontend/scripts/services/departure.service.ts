@@ -23,10 +23,11 @@ export class DepartureService {
     }).pipe(
       map(result => {
         const combined :IDeparture[] = [...result.ea, ...result.se];
-        combined.sort((a, b) => new Date(a.estimatedTime).getTime() - new Date(b.estimatedTime).getTime());
+        combined.sort((a, b) =>
+          a.plannedTime.localeCompare(b.plannedTime)
+        );
         return combined;
       })
     );
   }
 }
-
