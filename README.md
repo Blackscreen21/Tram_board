@@ -1,6 +1,6 @@
 ## Personal Tramboard Site for Home
 <img width="2032" height="1265" alt="image" src="https://github.com/user-attachments/assets/cf83c10e-b2d5-42bc-a799-26a1c6046127" />
-(using two random stations
+(using two random stations) <br>
 >Current Project State
 
 + Autofetches every minute
